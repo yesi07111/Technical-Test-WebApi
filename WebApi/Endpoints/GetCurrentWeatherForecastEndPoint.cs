@@ -1,10 +1,10 @@
-using Application.Queries.GetCurrentWeatherForecast;
+using Application.Command.GetCurrentWeatherForecast;
 using Domain.Entities;
 using FastEndpoints;
 
 namespace WebApi.Endpoints;
 
-public class GetCurrentWeatherForecastEndPoint : Endpoint<GetCurrentWeatherForecastQuery, WeatherForecast>
+public class GetCurrentWeatherForecastEndPoint : Endpoint<GetCurrentWeatherForecastCommand, WeatherForecast>
 {
     public override void Configure()
     {
@@ -12,7 +12,7 @@ public class GetCurrentWeatherForecastEndPoint : Endpoint<GetCurrentWeatherForec
         Get("/get_forecast");
     }
 
-    public override async Task<WeatherForecast> ExecuteAsync(GetCurrentWeatherForecastQuery req, CancellationToken ct)
+    public override async Task<WeatherForecast> ExecuteAsync(GetCurrentWeatherForecastCommand req, CancellationToken ct)
     {
         return await req.ExecuteAsync(ct);
     }

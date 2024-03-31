@@ -6,14 +6,14 @@ using Domain.Entities;
 using FastEndpoints;
 using Microsoft.Extensions.Options;
 
-namespace Application.Queries.GetCurrentWeatherForecast;
+namespace Application.Command.GetCurrentWeatherForecast;
 
-public class GetCurrentWeatherForecastQueryHandler(IWeatherForecastRepository repository,
+public class GetCurrentWeatherForecastCommandHandler(IWeatherForecastRepository repository,
                                                    IApiRequestService requestService,
                                                    IOptions<ExternalApiConfiguration> externalConfiguration)
-: CommandHandler<GetCurrentWeatherForecastQuery, WeatherForecast>
+: CommandHandler<GetCurrentWeatherForecastCommand, WeatherForecast>
 {
-    public override async Task<WeatherForecast> ExecuteAsync(GetCurrentWeatherForecastQuery command, CancellationToken ct = default)
+    public override async Task<WeatherForecast> ExecuteAsync(GetCurrentWeatherForecastCommand command, CancellationToken ct = default)
     {
         var _params = new Dictionary<string, string>();
         _params.Add("q", command.Location);
