@@ -1,4 +1,3 @@
-using Application.Queries.GetCurrentWeatherForecast;
 using Application.Queries.GetLastWeatherForecasts;
 using Domain.Entities;
 using FastEndpoints;

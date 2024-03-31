@@ -16,8 +16,6 @@ builder.Services.AddFastEndpoints()
 
 var app = builder.Build();
 
-app.UseAuthentication();
-app.UseAuthorization();
 
 app.UseFastEndpoints(opt =>
 {

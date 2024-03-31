@@ -1,11 +1,10 @@
 using Domain.Entities;
-using Domain.Entities.Auth;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructure.DbContexts;
 
-public class DefaultDbContext : IdentityDbContext<AppUser>
+public class DefaultDbContext : IdentityDbContext
 {
     public DefaultDbContext(DbContextOptions<DefaultDbContext> options) : base(options) { }
 
